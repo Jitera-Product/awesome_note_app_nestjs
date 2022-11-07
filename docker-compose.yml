@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  api:     
+    build: .
+    ports:
+      - ${APP_PORT}:3000
+    command: yarn start:dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - db
+      - redis
+    networks:
+      - api-network
+    env_file:
+      - .env
+  db:
+    image: postgres:14.1-alpine
+    restart: always    
+    environment:
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:5432
+    volumes: 
+      - postgres:/var/lib/postgresql/data   
+    networks:
+      - api-network
+  redis:    
+    image: redis:alpine
+    ports:
+      - ${REDIS_PORT}:6379
+    restart: always
+    command: redis-server
+    volumes:
+      - redis:/data
+    networks:
+      - api-network
+volumes:
+  postgres:
+    driver: local
+  redis: 
+    driver: local
+networks:
+  api-network:
+    driver: bridge

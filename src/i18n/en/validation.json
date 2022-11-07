@@ -1,0 +1,22 @@
+{
+  "IsString": "needs to be a string",
+  "IsNotEmpty": "cannot be empty",
+  "MinLength": "needs to be at least {constraints.0}",
+  "MaxLength": "needs to be less than {constraints.0}",
+  "IsUrl": "needs to be a valid url",
+  "IsEmail": "needs to be a valid email",
+  "Regex": "is not valid",
+  "IsInt": "needs to be interger",
+  "IsNumber": "needs to be number",
+  "Min": "needs to be at least {constraints.0}",
+  "Max": "needs to be less than {constraints.0}",
+  "IsPositive": "needs to be positive",
+  "Equals": "needs to be equal with \"{value}\"",
+  "IsEnum": "needs to be one of these values: {values}",
+  "IsBoolean": "needs to be boolean",
+  "MinDate": "needs to be at least {constraints.0}",
+  "MaxDate": "needs to be less than {constraints.0}",
+  "PhoneNumber": "needs to be valid phone number",
+  "HiraganaFormat": "needs to be in Hiragana",
+  "KatakanaFormat": "needs to be in Katakana"
+}

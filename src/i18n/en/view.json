@@ -1,0 +1,20 @@
+{
+  "project_name": "Awesome_Note_App",
+  "title": "Awesome_Note_App",
+  "description": "",
+  "admin_dashboard_label": "Admin Dashboard",
+  "sign_out_label": "Sign out",
+  "delete_label": "Delete",
+  "sessions.new.sign_in_label": "Sign in",
+  "sessions.new.sign_in_with_provider": "Sign in by %{provider}",
+  "sessions.new.forgot_password_label": "Forgot your password",
+  "passwords.new.reset_password_label": "Reset your password",
+  "passwords.new.submit_label": "Submit",
+  "passwords.new.back_to_sign_in_label": "Back to Sign in",
+  "passwords.edit.change_password_label": "Change your password",
+  "passwords.edit.sign_in_label": "Sign in",
+  "passwords.new.email_label": "Email",
+  "passwords.edit.reset_password_label": "Reset your password",
+  "passwords.edit.password_label": "Password",
+  "passwords.edit.password_confirmation_label": "Password confirmation"
+}

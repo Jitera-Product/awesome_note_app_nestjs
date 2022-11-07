@@ -1,0 +1,1 @@
+export declare function ApiNestedQuery(fieldName: string, type: Function, required?: boolean): <TFunction extends Function, Y>(target: object | TFunction, propertyKey?: string | symbol, descriptor?: TypedPropertyDescriptor<Y>) => void;

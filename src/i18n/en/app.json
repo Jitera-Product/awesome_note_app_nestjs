@@ -1,0 +1,10 @@
+{
+  "authentication_error": "Unauthorized",
+  "file_exists_label": "File already exists",
+  "out_of_range_error": "Is out of the range of expectation",
+  "unauthorized_error": "Unauthorized",
+  "record_not_uniq_error": "Record not uniq",
+  "email_login.failed_to_sign_up": "Failed to sign up",
+  "mobile.wrong_credentials": "Wrong credentials",
+  "mobile.user_not_registered": "User is not registered"
+}

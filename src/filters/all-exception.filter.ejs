@@ -1,0 +1,39 @@
+import {
+  ExceptionFilter,
+  Catch,
+  ArgumentsHost,
+  HttpStatus,
+} from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { Response } from 'express';
+import { RollbarLogger } from 'nestjs-rollbar';
+
+@Catch()
+export class AllExceptionFilter implements ExceptionFilter {
+  constructor(private readonly configService: ConfigService) {}
+
+  catch(exception, host: ArgumentsHost) {
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse<Response>();
+    const authenticateHeader = response.getHeader('WWW-Authenticate');
+    if (authenticateHeader) {
+      return;
+    }
+    let status = HttpStatus.INTERNAL_SERVER_ERROR;
+    if (exception && exception.getStatus) {
+      status = exception.getStatus();
+    }
+
+    const message = exception?.response?.message || exception.message;
+    const rollbarLogger = new RollbarLogger({
+      accessToken: this.configService.get('rollbar.accessToken'),
+      environment: this.configService.get('app.nodeEnv'),
+    });
+    rollbarLogger.error(exception);
+
+    response.status(status).json({
+      message,
+      timestamp: new Date().toISOString(),
+    });
+  }
+}
